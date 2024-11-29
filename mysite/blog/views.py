@@ -1,23 +1,12 @@
 from django.core.mail import send_mail
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
 from taggit.models import Tag
-from .models import Post, Comment
+from .models import Post
 from .forms import EmailPostForm, CommentForm, SearchForm
 from django.views.decorators.http import require_POST
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-
-
-# class PostListView(ListView):
-#     """
-#     Представление отображения постов
-#     """
-#     queryset = Post.published.all()
-#     context_object_name = 'posts'
-#     paginate_by = 3
-#     template_name = 'blog/post/list.html'
 
 
 def post_list(request, tag_slug=None):
