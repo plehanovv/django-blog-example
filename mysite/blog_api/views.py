@@ -1,6 +1,6 @@
 from rest_framework import mixins
 from rest_framework import generics
-from blog.models import Post
+from blog.views import Post
 from .serializers import PostSerializer
 
 
